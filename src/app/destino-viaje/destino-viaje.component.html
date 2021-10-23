@@ -1,0 +1,30 @@
+<div class="card-content">
+    <div class="card-img">
+        <img *ngIf="!destino.imageUrl; else img2" src="https://placeimg.com/380/230/nature" alt="">
+        <ng-template #img2><img src="{{destino.imageUrl}}" alt=""></ng-template>
+        <span><h4>{{position}}</h4></span>
+    </div>
+    <div class="card-desc">
+        <h3>{{destino.nombre}}</h3>
+        <p>Servicios</p>
+        <ul>
+            <li *ngFor="let s of destino.servicios">
+              <span [ngSwitch]="s">
+                  <i *ngSwitchCase="'desayuno'" style="color: red;">{{s}} </i>
+                  <i *ngSwitchCase="'gym'" style="color: blue;" >{{s}} </i>
+                  <i *ngSwitchDefault>{{s}}</i>
+              </span>
+            </li>
+        </ul>
+        <div>
+            <a href="#" (click)="voteUp()"><i class="material-icons md-18">thumb_up</i></a>
+            <a href="#" (click)="voteDown()"><i class="material-icons md-18">thumb_down</i></a>
+            {{destino.votes}}
+        </div>
+        <a href="#" class="btn-card" (click)="ir()")>Ir</a>
+        <span *ngIf="destino.isSelected()">
+           <span ngNoneBindable>{{Preferido}}</span>
+        </span>
+        <a [routerLink]="['/destino']">Ver Detalle</a>
+    </div>
+</div>

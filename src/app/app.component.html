@@ -1,0 +1,22 @@
+<div class="container content">
+    <div class="page-header">
+        <div class="container">
+            <h1>Ruteo Simple</h1>
+            <div class="navLinks">
+                <a [routerLink]="['/home']">Home</a>
+                <a [routerLink]="['/destino']">Destino</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h1>
+            {{title}}
+        </h1>
+    </div>
+    <router-oulet></router-oulet>
+</div>
+
+<hr class="mb-5">
+fecha: {{time | async }}
+
+    
